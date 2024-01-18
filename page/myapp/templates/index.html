@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-color: black; /* Sets the background color to black */
+            overflow: hidden; /* Disables scrolling */
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .spline-container {
+            width: 100vw; /* or max-width if you want to limit it */
+            height: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        spline-viewer {
+            max-width: 100%;
+            max-height: 100vh; /* Viewport height */
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.29/build/spline-viewer.js"></script>
+    <div class="spline-container">
+        
+        <spline-viewer url="https://prod.spline.design/XBsHRBjoY-Fd0l1i/scene.splinecode"></spline-viewer>
+    </div>
+    <script>
+        // Prevent scrolling with the mouse wheel
+        window.addEventListener('wheel', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+        
+        // Prevent scrolling with the keyboard (arrow keys, spacebar, etc.)
+        window.addEventListener('keydown', function(e) {
+            if (['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].indexOf(e.code) > -1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    </script>
+
+</body>
+</html>
